@@ -76,12 +76,12 @@ def str_to_int(s):
     return i
 
 def str_to_bytes(s):
-    m = re.match('(\d+)(\[a-z]|[A-Z])', s)
-    r = re.match('(\d+).(\d+)(\[a-z]|[A-Z])', s)
+    m = re.match('(\d+)([a-z]|[A-Z])', s)
+    r = re.match('(\d+\.\d+)(\[a-z]|[A-Z])', s)
     if r:
         m = r
     if m:
-        i = int(m.group(1))
+        i = int(float(m.group(1)))
         if m.group(2) == 'k' or m.group(2) == 'K':
             i = i * 1024
         elif m.group(2) == 'm' or m.group(2) == 'M':
